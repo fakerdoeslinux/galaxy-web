@@ -1,0 +1,57 @@
+name: Deploy galaxy-web to Pages
+
+# The site is static: no build step, no dependencies. A push to main publishes the repo root as-is.
+# One-time setup: Settings > Pages > Build and deployment > Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check the sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax-check the modules
+        run: |
+          for file in src/main.js docs/plan.js; do
+            node --check "$file"
+          done
+      - name: The page must not reference a missing file
+        run: |
+          set -eu
+          for file in index.html src/style.css src/main.js src/shaders/planet.wgsl \
+                      src/shaders/starfield.wgsl src/shaders/uniforms.wgsl \
+                      docs/index.html docs/plan.js docs/port-plan.md; do
+            test -s "$file" || { echo "missing or empty: $file"; exit 1; }
+          done
+          grep -q 'WebGPU' index.html
+
+  deploy:
+    name: Deploy
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

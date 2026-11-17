@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Galaxy Web — Super Mario Galaxy in the browser (WebGPU)</title>
+<meta name="description" content="galaxy-web: a WebGPU renderer demo and the port plan for running Nebula's Super Mario Galaxy Linux build in a browser." />
+<link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+<canvas id="view"></canvas>
+
+<header id="hud">
+  <div class="brand">
+    <span class="mark">ofx</span>
+    <span class="name">GALAXY WEB</span>
+    <span class="tag">WebGPU</span>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<div id="panel">
+  <div class="row"><span>frame</span><b id="perf-fps">--</b></div>
+  <div class="row"><span>gpu work</span><b id="perf-ms">--</b></div>
+  <div class="row"><span>render</span><b id="perf-size">--</b></div>
+  <div class="row"><span>adapter</span><b id="perf-adapter">--</b></div>
+  <div class="row"><span>driver</span><b id="perf-driver">--</b></div>
+  <div class="row"><span>scale</span>
+    <span class="scales">
+      <button data-scale="0.5">50%</button>
+      <button data-scale="0.75">75%</button>
+      <button data-scale="1" class="on">100%</button>
+    </span>
+  </div>
+</div>
+
+<div id="unsupported" hidden>
+  <h1>WebGPU is not available here</h1>
+  <p id="unsupported-why"></p>
+  <p>Needs a browser with WebGPU: Chrome / Chromium 113+, Edge 113+, Firefox 141+, Safari 26+. On Linux
+     Chrome uses Vulkan underneath.</p>
+</div>
+
+<footer id="foot">
+  <span>drag to orbit · wheel to zoom</span>
+  <span>procedural scene, no game data — the port plan is in <a href="docs/">docs/</a></span>
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

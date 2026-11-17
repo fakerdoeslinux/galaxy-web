@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>galaxy-web — port plan</title>
+<link rel="stylesheet" href="../src/style.css" />
+<style>
+  html, body { overflow: auto; height: auto; }
+  body { background: #01030a; padding: 0 0 96px; }
+  #doc {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 72px 24px 0;
+    font: 400 15px/1.65 ui-monospace, "Iosevka Term", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  #back {
+    position: fixed;
+    top: 14px;
+    left: 16px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 4px 8px;
+    border: 1px solid var(--edge);
+    border-radius: 4px;
+    background: rgba(6, 10, 22, 0.8);
+  }
+  #back:hover { background: rgba(127, 212, 255, 0.12); }
+  #doc h1 { font-size: 26px; letter-spacing: 0.04em; margin: 0 0 20px; color: #fff; }
+  #doc h2 { font-size: 18px; letter-spacing: 0.06em; margin: 40px 0 12px; color: var(--accent); }
+  #doc h3 { font-size: 15px; letter-spacing: 0.06em; margin: 26px 0 8px; color: var(--warm); }
+  #doc h4 { font-size: 13px; letter-spacing: 0.08em; margin: 20px 0 6px; color: var(--dim); }
+  #doc p { color: var(--ink); margin: 0 0 14px; }
+  #doc ul, #doc ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink); }
+  #doc li { margin: 0 0 7px; }
+  #doc code {
+    font: inherit;
+    font-size: 13px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(127, 212, 255, 0.10);
+    color: #bfe9ff;
+  }
+  #doc pre {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    background: rgba(6, 10, 22, 0.9);
+  }
+  #doc pre code { padding: 0; background: none; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
+  #doc a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(127, 212, 255, 0.35); }
+  #doc a:hover { border-bottom-color: var(--accent); }
+  #doc strong { color: #fff; }
+  #doc .table { overflow-x: auto; margin: 0 0 18px; }
+  #doc table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  #doc th, #doc td {
+    text-align: left;
+    vertical-align: top;
+    padding: 7px 10px;
+    border: 1px solid var(--edge);
+  }
+  #doc th { background: rgba(127, 212, 255, 0.08); color: var(--accent); font-weight: 600; }
+  #doc .error { color: var(--warm); }
+</style>
+</head>
+<body>
+<a id="back" href="../">← galaxy-web</a>
+<article id="doc"><div id="plan"><p>loading the plan…</p></div></article>
+<script src="plan.js"></script>
+</body>
+</html>
