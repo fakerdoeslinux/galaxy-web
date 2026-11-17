@@ -10,7 +10,7 @@ report of what the browser's graphics stack gave us. It exists to do two things:
 1. prove the browser is running the same class of hardware path Nebula's Vulkan renderer uses, and
 2. be the measuring stick the port plan is written against.
 
-**[Open it](https://fakerh0g.github.io/galaxy-web/)** · **[Port plan](https://fakerh0g.github.io/galaxy-web/docs/)**
+**[Open it](https://fakerdoeslinux.github.io/galaxy-web/)** · **[Port plan](https://fakerdoeslinux.github.io/galaxy-web/docs/)**
 
 ## What it does
 
